@@ -1,0 +1,48 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>{{ title }}</h1>
+    <a href="{% url 'user_create' %}" class="btn btn-primary">➕ Novo Usuário</a>
+</div>
+
+{% if users %}
+    <div class="row">
+        {% for user in users %}
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user.name }}</h5>
+                        <p class="card-text">
+                            <strong>Email:</strong> {{ user.email }}<br>
+                            <strong>Idade:</strong> {{ user.age }} anos<br>
+                            <small class="text-muted">Criado em: {{ user.created_at|date:"d/m/Y H:i" }}</small>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="btn-group w-100">
+                            <a href="{% url 'user_detail' user.pk %}" class="btn btn-info btn-sm">👁️ Ver</a>
+                            <a href="{% url 'user_edit' user.pk %}" class="btn btn-warning btn-sm">✏️ Editar</a>
+                            <a href="{% url 'user_delete' user.pk %}" class="btn btn-danger btn-sm">🗑️ Deletar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info">
+        <h4>Nenhum usuário encontrado</h4>
+        <p>Comece <a href="{% url 'user_create' %}">criando um novo usuário</a>.</p>
+    </div>
+{% endif %}
+
+<div class="mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h6>💡 Sobre este template</h6>
+            <p class="mb-0">Este template usa o sistema de templates do Django com tags como <code>{% templatetag openblock %} for {% templatetag closeblock %}</code>, <code>{% templatetag openblock %} if {% templatetag closeblock %}</code> e <code>{% templatetag openblock %} url {% templatetag closeblock %}</code> para criar HTML dinâmico.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

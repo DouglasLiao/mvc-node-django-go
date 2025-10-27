@@ -1,0 +1,41 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h3>{{ title }}</h3>
+            </div>
+            <div class="card-body text-center">
+                <div class="display-1 text-danger">⚠️</div>
+                <h4 class="mt-3">Confirmar Exclusão</h4>
+                <p>Tem certeza que deseja deletar o usuário:</p>
+                
+                <div class="alert alert-warning">
+                    <strong>{{ user.name }}</strong><br>
+                    {{ user.email }}<br>
+                    {{ user.age }} anos
+                </div>
+                
+                <p class="text-danger"><strong>Esta ação não pode ser desfeita!</strong></p>
+                
+                <form method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger me-2">🗑️ Sim, Deletar</button>
+                </form>
+                <a href="{% url 'user_detail' user.pk %}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h6>💭 Sobre este padrão</h6>
+                    <p class="mb-0">Este é um exemplo de <strong>confirmação de exclusão</strong>, uma boa prática para operações destrutivas. O Django facilita isso com views e templates dedicados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

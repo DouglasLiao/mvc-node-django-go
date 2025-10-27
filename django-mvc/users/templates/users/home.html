@@ -1,0 +1,69 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="text-center py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin: -1.5rem -15px 0 -15px; padding: 4rem 0;">
+    <div class="container">
+        <h1 class="display-4 fw-bold">{{ message }}</h1>
+        <p class="lead">Este é um exemplo prático de arquitetura MVC (Model-View-Template) usando Django</p>
+        <a href="{% url 'user_list' %}" class="btn btn-light btn-lg">Ver Usuários</a>
+    </div>
+</section>
+
+<!-- Conteúdo -->
+<div class="mt-5">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">📊 Model</h5>
+                    <p class="card-text">Gerencia os dados e regras de negócio. No Django, os Models são classes Python que representam tabelas do banco.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">📄 Template</h5>
+                    <p class="card-text">Interface do usuário. Templates Django usam uma linguagem própria para renderizar HTML dinâmico.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">🎮 View</h5>
+                    <p class="card-text">Controla a lógica da aplicação. No Django, Views são funções Python que processam requisições.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>🐍 Como funciona o MTV no Django?</h5>
+                </div>
+                <div class="card-body">
+                    <p>O Django usa o padrão <strong>MTV (Model-Template-View)</strong>, que é uma variação do MVC:</p>
+                    <ol>
+                        <li><strong>Usuário faz uma requisição</strong> → Django recebe via URLs</li>
+                        <li><strong>URL chama a View</strong> → Função Python processa a requisição</li>
+                        <li><strong>View usa o Model</strong> → Interage com o banco de dados</li>
+                        <li><strong>View renderiza o Template</strong> → HTML dinâmico é gerado</li>
+                        <li><strong>Response é enviada</strong> → Usuário vê o resultado</li>
+                    </ol>
+                    
+                    <div class="alert alert-info mt-3">
+                        <strong>Diferença para Node.js MVC:</strong><br>
+                        • <strong>Django MTV:</strong> Model → Template → View<br>
+                        • <strong>Node.js MVC:</strong> Model → View → Controller<br>
+                        <em>A "View" do Django faz o papel do "Controller" tradicional!</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

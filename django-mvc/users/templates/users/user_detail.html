@@ -1,0 +1,62 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3>Detalhes do Usuário</h3>
+                <span class="badge bg-primary">ID: {{ user.pk }}</span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Informações Pessoais</h5>
+                        <table class="table table-borderless">
+                            <tr>
+                                <td><strong>Nome:</strong></td>
+                                <td>{{ user.name }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Email:</strong></td>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Idade:</strong></td>
+                                <td>{{ user.age }} anos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Criado em:</strong></td>
+                                <td>{{ user.created_at|date:"d/m/Y H:i" }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Atualizado em:</strong></td>
+                                <td>{{ user.updated_at|date:"d/m/Y H:i" }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="display-1">👤</div>
+                        <p class="text-muted">Avatar do usuário</p>
+                        
+                        <div class="alert alert-info mt-3">
+                            <small>
+                                <strong>Django ORM:</strong><br>
+                                Este usuário foi recuperado do banco usando<br>
+                                <code>User.objects.get(pk={{ user.pk }})</code>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group">
+                    <a href="{% url 'user_list' %}" class="btn btn-secondary">← Voltar</a>
+                    <a href="{% url 'user_edit' user.pk %}" class="btn btn-warning">✏️ Editar</a>
+                    <a href="{% url 'user_delete' user.pk %}" class="btn btn-danger">🗑️ Deletar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
