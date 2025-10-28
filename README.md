@@ -1,6 +1,6 @@
-# 📚 Aprendendo MVC - Node.js vs Django
+# 📚 Aprendendo MVC - Node.js vs Django vs Go
 
-Este repositório contém dois exemplos práticos de implementação do padrão **MVC (Model-View-Controller)** usando duas tecnologias diferentes:
+Este repositório contém dois exemplos práticos de implementação do padrão **MVC (Model-View-Controller)** usando três tecnologias diferentes:
 
 - **Node.js + Express** (MVC tradicional)
 - **Django** (MTV - Model-Template-View)
