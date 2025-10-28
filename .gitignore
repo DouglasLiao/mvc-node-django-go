@@ -1,3 +1,16 @@
+# === Go ===
+go-mvc/bin/
+go-mvc/*.exe
+go-mvc/*.out
+go-mvc/*.test
+go-mvc/coverage/
+go-mvc/.idea/
+go-mvc/.vscode/
+go-mvc/.DS_Store
+go-mvc/go.sum
+go-mvc/go.mod
+go-mvc/vendor/
+go-mvc/.env
 # === Node.js ===
 # Dependências
 nodejs-mvc/node_modules/

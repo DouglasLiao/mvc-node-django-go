@@ -4,6 +4,7 @@ Este repositório contém dois exemplos práticos de implementação do padrão 
 
 - **Node.js + Express** (MVC tradicional)
 - **Django** (MTV - Model-Template-View)
+- **Go** (MVC REST)
 
 ## 🎯 Objetivo
 
@@ -16,6 +17,7 @@ Demonstrar como o mesmo conceito arquitetural pode ser implementado de formas di
 
 ## 📁 Estrutura dos Projetos
 
+
 ```
 estudos/nodejs/
 ├── nodejs-mvc/          # Projeto Node.js + Express
@@ -25,19 +27,27 @@ estudos/nodejs/
 │   ├── routes/          # Definição de rotas
 │   └── app.js           # Arquivo principal
 │
-└── django-mvc/          # Projeto Django
-    ├── users/           # App Django
-    │   ├── models.py    # Models Django
-    │   ├── views.py     # Views (Controllers)
-    │   ├── templates/   # Templates Django
-    │   └── urls.py      # URLs do app
-    └── userproject/     # Configurações Django
+├── django-mvc/          # Projeto Django
+│   ├── users/           # App Django
+│   │   ├── models.py    # Models Django
+│   │   ├── views.py     # Views (Controllers)
+│   │   ├── templates/   # Templates Django
+│   │   └── urls.py      # URLs do app
+│   └── userproject/     # Configurações Django
+│
+└── go-mvc/              # Projeto Go (MVC REST)
+    ├── main.go          # Entrypoint
+    ├── models/          # Structs de domínio
+    ├── controllers/     # Handlers HTTP
+    ├── services/        # Lógica de negócio
+    ├── repository/      # Simula acesso a dados
+    ├── routes/          # Roteamento
+    └── README.md        # Instruções Go
 ```
 
 ## 🚀 Como Executar
 
 ### Node.js MVC
-
 ```bash
 cd nodejs-mvc
 npm install
@@ -46,7 +56,6 @@ npm run dev
 ```
 
 ### Django MTV
-
 ```bash
 cd django-mvc
 source venv/bin/activate
@@ -54,19 +63,34 @@ python manage.py runserver
 # Acesse: http://127.0.0.1:8000
 ```
 
+### Go MVC
+```bash
+cd go-mvc
+go mod tidy
+go run main.go
+# Acesse: http://localhost:8080
+```
+
+Principais rotas Go:
+- `GET    /users`         → Lista usuários
+- `GET    /users/{id}`    → Detalhe usuário
+- `POST   /users`         → Cria usuário (JSON)
+- `PUT    /users/{id}`    → Atualiza usuário (JSON)
+- `DELETE /users/{id}`    → Remove usuário
+
 ## 🔍 Comparação Detalhada
 
-| Aspecto | Node.js + Express | Django |
-|---------|-------------------|---------|
-| **Padrão** | MVC (Model-View-Controller) | MTV (Model-Template-View) |
-| **Linguagem** | JavaScript | Python |
-| **Flexibilidade** | Muito alta - escolha suas libs | Estrutura mais rígida |
-| **Curva de Aprendizado** | Moderada | Íngreme no início |
-| **Admin Interface** | Precisa criar | Automática |
-| **ORM** | Escolha (Sequelize, etc.) | Django ORM built-in |
-| **Templates** | Escolha (EJS, Handlebars) | Django Template Language |
-| **Scaffolding** | Manual | Comandos automáticos |
-| **Ecosystem** | NPM (muito vasto) | PyPI (focado) |
+| Aspecto | Node.js + Express | Django | Go |
+|---------|-------------------|--------|----|
+| **Padrão** | MVC (Model-View-Controller) | MTV (Model-Template-View) | MVC REST |
+| **Linguagem** | JavaScript | Python | Go |
+| **Flexibilidade** | Muito alta - escolha suas libs | Estrutura mais rígida | Estrutura livre |
+| **Curva de Aprendizado** | Moderada | Íngreme no início | Baixa/moderada |
+| **Admin Interface** | Precisa criar | Automática | Manual |
+| **ORM** | Escolha (Sequelize, etc.) | Django ORM built-in | Manual ou GORM |
+| **Templates** | Escolha (EJS, Handlebars) | Django Template Language | html/template (opcional) |
+| **Scaffolding** | Manual | Comandos automáticos | Manual |
+| **Ecosystem** | NPM (muito vasto) | PyPI (focado) | Go Modules |
 
 ## 📊 Fluxo de Funcionamento
 
@@ -78,6 +102,11 @@ Request → Route → Controller → Model → Controller → View → Response
 ### Django MTV
 ```
 Request → URL → View → Model → View → Template → Response
+```
+
+### Go MVC
+```
+Request → Route → Controller → Service → Repository → Model → Controller → Response
 ```
 
 ## 💡 Conceitos Aprendidos
@@ -124,13 +153,14 @@ Request → URL → View → Model → View → Template → Response
 
 Depois de entender estes exemplos, você pode:
 
-1. **Adicionar banco de dados real** (PostgreSQL, MySQL)
+1. **Adicionar banco de dados real** (PostgreSQL, MySQL, SQLite)
 2. **Implementar autenticação** de usuários
 3. **Criar APIs REST** para mobile
 4. **Adicionar testes** automatizados
 5. **Deploy em produção** (Heroku, AWS, etc.)
 6. **Implementar cache** (Redis)
 7. **Adicionar WebSockets** para tempo real
+8. **Adicionar templates HTML no Go**
 
 ## 🔗 Recursos Úteis
 
